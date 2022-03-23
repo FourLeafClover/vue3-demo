@@ -1,19 +1,44 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
+import Index from '@/views/Index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'index',
+    component: Index
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/pinia',
+    name: 'pinia',
+    component: () => import(/* webpackChunkName: "pinia" */ '../views/Pinia/indexView.vue'),
+    meta: {
+      title: '状态管理-pinia'
+    }
+  },
+  {
+    path: '/eventBus',
+    name: 'eventBus',
+    component: () => import(/* webpackChunkName: "eventBus" */ '../views/EventBusView/indexView.vue'),
+    meta: {
+      title: 'event-bus'
+    }
+  },
+  {
+    path: '/slot',
+    name: 'slot',
+    component: () => import(/* webpackChunkName: "slot" */ '../views/SlotView/indexView.vue'),
+    meta: {
+      title: '插槽'
+    }
+  },
+  {
+    path: '/theme',
+    name: 'theme',
+    component: () => import(/* webpackChunkName: "theme" */ '../views/ThemeView/indexView.vue'),
+    meta: {
+      title: '主题切换'
+    }
   }
 ]
 
